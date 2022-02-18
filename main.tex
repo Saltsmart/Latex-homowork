@@ -1,0 +1,27 @@
+\input{Style/style}
+\begin{document}
+\title{标题设置见Style/style.tex中的标题样式}
+\author{张三浦}
+
+\input{Content/titlepage.tex} % 这个是封面，不需要刻意注释掉
+\maketitle
+
+% \begin{abstract}
+% 	摘要。
+% 	\\\\
+% 	\textbf{关键词：}关键词1；关键词2
+% \end{abstract}
+
+\section{引言}
+
+这里是引言\cite{Runge}。
+
+\begin{figure}[H]
+	\center
+	\includegraphics*[width=12cm]{Figure/1.png}
+	\centering
+	\caption{图片示例}\label{g1-1}
+\end{figure}
+
+\printbibliography%[heading=bibliography,title=参考文献]
+\end{document}

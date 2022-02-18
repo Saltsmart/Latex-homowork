@@ -1,0 +1,30 @@
+\begin{titlepage}
+%本页为自定义的封面
+	% \title{作业标题}
+	% \author{作者}
+	\newcommand{\ID}{{\Large 000000000}}
+	\newcommand{\supervisor}{{\Large 李田所}}
+	\newcommand{\class}{{\Large 班级}}
+    
+	\center
+	\quad\\[1cm]
+	\includegraphics[width=12cm]{Content/logo.jpg}\\[1.5cm]
+% 	{\Large 题目1}\\[0.5cm]
+% 	{\Large 题目2}\\[1.5cm] 
+	\quad\\[1cm]
+	\makeatletter
+	{\linespread{4}\Huge\bfseries\@title}\\[2cm]
+	\begin{table}[H]
+		\centering
+		  \begin{tabular}{rl}
+			{\Large 姓名：}&{\Large 张三浦}\\[0.5cm]
+			{\Large 学号：}&\ID\\[0.5cm]
+			{\Large 班级：}&\class\\[0.5cm]
+			{\Large 导师：}&\supervisor
+		  \end{tabular}\\
+	\end{table}
+	\makeatother
+	\quad\\[1cm]
+	{\Large \today}\\[2cm] % 日期
+	\vfill 
+\end{titlepage}

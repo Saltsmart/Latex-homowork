@@ -1,0 +1,206 @@
+%算法
+
+% \begin{algorithm}
+% 	\caption{My algorithm}\label{euclid}
+% 	\begin{algorithmic}[1]
+% 		\Procedure{MyProcedure}{}
+% 			abc
+% 		\State $\textit{stringlen} \gets \text{length of }\textit{string}$
+% 		\State $i \gets \textit{patlen}$
+% 		\BState \emph{top}:
+% 		\If {$i > \textit{stringlen}$} \Return false
+% 		\EndIf
+% 		\State $j \gets \textit{patlen}$
+% 		\BState \emph{loop}:
+% 		\If {$\textit{string}(i) = \textit{path}(j)$}
+% 		\State $j \gets j-1$.
+% 		\State $i \gets i-1$.
+% 		\State \textbf{goto} \emph{loop}.
+% 		\State \textbf{close};
+% 		\EndIf
+% 		\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+% 		\State \textbf{goto} \emph{top}.
+% 		\EndProcedure
+% 	\end{algorithmic}
+% \end{algorithm}
+
+% \begin{algorithm}[h]
+% 	\caption{An example for format For \& While Loop in Algorithm}
+% 	\begin{algorithmic}[1]
+% 		\For{each $i\in [1,9]$}
+% 		\State initialize a tree $T_{i}$ with only a leaf (the root);
+% 		\State $T=T\cup T_{i};$
+% 		\EndFor
+% 		\ForAll {$c$ such that $c\in RecentMBatch(E_{n-1})$}
+% 		\label{code:TrainBase:getc}
+% 		\State $T=T\cup PosSample(c)$;
+% 		\label{code:TrainBase:pos}
+% 		\EndFor;
+% 		\For{$i=1$; $i<n$; $i++$ }
+% 		\State $//$ Your source here;
+% 		\EndFor
+% 		\For{$i=1$ to $n$}
+% 		\State $//$ Your source here;
+% 		\EndFor
+% 		\State $//$ Reusing recent base classifiers.
+% 		\label{code:recentStart}
+% 		\While {$(|E_n| \leq L_1 )and( D \neq \phi)$}
+% 		\State Selecting the most recent classifier $c_i$ from $D$;
+% 		\State $D=D-c_i$;
+% 		\State $E_n=E_n+c_i$;
+% 		\EndWhile
+% 		\label{code:recentEnd}
+% 	\end{algorithmic}
+% \end{algorithm}
+
+%示意图
+
+% \begin{figure}
+	% 	\centering  
+	% 	\scriptsize  
+	% 	\tikzstyle{format}=[rectangle,draw,thin,fill=white]  
+	% 	%定义语句块的颜色,形状和边
+	% 	\tikzstyle{test}=[diamond,aspect=2,draw,thin]  
+	% 	%定义条件块的形状,颜色
+	% 	\tikzstyle{point}=[coordinate,on grid,]  
+	% 	%像素点,用于连接转移线
+	% 	\begin{tikzpicture}%[node distance=10mm,auto,>=latex',thin,start chain=going below,every join/.style={norm},] 
+	% 	%start chain=going below指明了流程图的默认方向，node distance=8mm则指明了默认的node距离。这些可以在定义node的时候更改，比如说 
+	% 	%\node[point,right of=n3,node distance=10mm] (p0){};  
+	% 	%这里声明了node p0，它在node n3 的右边，距离是10mm。
+	% 	%第一个node \node[样式] (标号){内容} 
+	% 	\node[format] (start){Start};
+	% 	%后面的node,使用below of=标号,right of=标号,left of=标号,表示位置,可以加上node distance=xmm调节位置. 
+	% 	\node[format,below of=start,node distance=7mm] (define){Some defines};
+	% 	\node[format,below of=define,node distance=7mm] (PCFinit){PCF8563 Initialize};
+	% 	\node[format,below of=PCFinit,node distance=7mm] (DS18init){DS18 Initialize};
+	% 	\node[format,below of=DS18init,node distance=7mm] (LCDinit){LCD Initialize};
+	% 	\node[format,below of=LCDinit,node distance=7mm] (processtime){Processtime};
+	% 	\node[format,below of=processtime,node distance=7mm] (keyinit){Key Initialize};
+	% 	\node[test,below of=keyinit,node distance=15mm](setkeycheck){Check Set Key};
+	% 	\node[point,left of=setkeycheck,node distance=18mm](point3){};
+	% 	\node[format,below of=setkeycheck,node distance=15mm](readtime){Read Time};
+	% 	\node[point,right of=readtime,node distance=15mm](point4){};
+	% 	\node[format,below of=readtime](processtime1){Processtime};
+	% 	\node[format,below of=processtime1](gettemp){Get Temperature};
+	% 	\node[format,below of=gettemp](display){Display All Data};
+	% 	\node[format,right of=setkeycheck,node distance=40mm](setsetflag){Set SetFlag=1};
+	% 	\node[format,below of=setsetflag](setinit){Set Mode Initialize};
+	% 	\node[format,below of=setinit](checksetting){Checksetting()};
+	% 	\node[test,below of=checksetting,node distance=15mm](savecheck){Check Save Key};
+	% 	\node[format,below of=savecheck,node distance=15mm](clearsetflag){Clear SetFlag=0};
+	% 	\node[format,below of=clearsetflag](settime){Set Time};
+	% 	\node[point,below of=display,node distance=7mm](point1){};
+	% 	\node[point,below of=settime,node distance=7mm](point2){};
+	% 	%\node[format] (n0) at(4,4){A}; 直接指定位置 
+	% 	%定义完node之后进行连线,
+	% 	%\draw[->] (n0.south) -- (n1); 带箭头实线
+	% 	%\draw[-] (n0.south) -- (n1); 不带箭头实线
+	% 	%\draw[<->] (n0.south) -- (n1.north);   双箭头
+	% 	%\draw[<-,dashed] (n1.south) -- (n2.north); 带箭头虚线 
+	% 	%\draw[<-] (n0.south) to node{Yes} (n1.north);  带字,字在箭头方向右边
+	% 	%\draw[->] (n1.north) to node{Yes} (n0.south);  带字,字在箭头方向左边
+	% 	%\draw[->] (n1.north) to[out=60,in=300] node{Yes} (n0.south);  曲线
+	% 	%\draw[->,draw=red](n2)--(n1);  带颜色的线
+	% 	\draw[->] (start)--(define);
+	% 	\draw[->] (define)--(PCFinit);
+	% 	\draw[->](PCFinit)--(DS18init);
+	% 	\draw[->](DS18init)--(LCDinit);
+	% 	\draw[->](LCDinit)--(processtime);
+	% 	\draw[->](processtime)--(keyinit);
+	% 	\draw[->](keyinit)--(setkeycheck);
+	% 	\draw[->](setkeycheck)--node[above]{Yes}(setsetflag);
+	% 	\draw[->](setkeycheck) --node[left]{No} (readtime);
+	% 	\draw[->](readtime)--(processtime1);
+	% 	\draw[->](processtime1)--(gettemp);
+	% 	\draw[->](gettemp)--(display);
+	% 	\draw[-](display)--(point1);
+	% 	\draw[-](point1)-|(point3);
+	% 	\draw[->](point3)--(setkeycheck.west);
+	% 	\draw[->](setsetflag)--(setinit);
+	% 	\draw[->](setinit)--(checksetting);
+	% 	\draw[->](checksetting)--(savecheck);
+	% 	\draw[->](savecheck)--node[left]{Yes}(clearsetflag);
+	% 	\draw[->](savecheck.west)|-node[left]{No}(checksetting);
+	% 	\draw[->](clearsetflag)--(settime);
+	% 	\draw[-](settime)--(point2);
+	% 	\draw[-](point2)-|(point4);
+	% 	\draw[->](point4)--(readtime.east);
+	% 	\end{tikzpicture}  
+	% \end{figure}
+
+	% \begin{tikzpicture}
+	% 	[every node/.style={align=center}]
+	% 	\foreach \x in{1,2,3,4,5}
+	% 	\fill[red!60](0,\x)circle(5pt)node(a\x){};
+	% 	\fill[blue!60](-2,1.5)circle(5pt)node(b1){};
+	% 	\fill[blue!60](-2,2.5)circle(5pt)node(b2){};
+	% 	\fill[blue!60](-2,3.5)circle(5pt)node(b3){};
+	% 	\fill[blue!60](-2,4.5)circle(5pt)node(b4){};
+	% 	\fill[blue](2,3)circle(5pt)node(c){};
+	% 	\node(y4)at(-3,4.5){$x_1$};
+	% 	\node(y3)at(-3,3.5){$\vdots$};
+	% 	\node(y2)at(-3,2.5){$x_n$};
+	% 	\node(y1)at(-3,1.5){bias:1};
+	% 	\node at(-2,6){Input\\layer};
+	% 	\node at(0,6){Hidden\\layer};
+	% 	\node at(2,6){Output\\layer};
+	% 	\node(d)at(3.5,3){$N(x,p)$};
+	% 	\draw[-stealth](c)--(d);
+	% 	\foreach \x in{1,2,3,4}
+	% 	\draw[-{stealth[sep=2pt]}](y\x)--(b\x);
+	% 	\foreach \x in{1,2,3,4}
+	% 	{\foreach \y in{1,2,3,4,5}
+	% 		{\draw[-{stealth[sep=2pt]}](b\x)--(a\y);
+	% 			\draw[-{stealth[sep=4pt]}](a\y)--(c.west);
+	% 		}
+	% 	}
+	% 	\end{tikzpicture}
+	
+% 水印
+% \AddToShipoutPicture{\BackgroundPicture} % 开始加入水印
+% \ClearShipoutPicture % 停止使用水印
+
+% 为避免矩阵求逆运算，$(\bm D-\bm L)^{-1}$也可以不求，写成
+% $$
+% \left\{\begin{array}{l}
+% x_{1}^{(k+1)}=\dfrac{1}{4}\left(3+x_{2}^{(k)}\right) \\
+% x_{2}^{(k+1)}=-1+x_{1}^{(k+1)}+x_{3}^{(k)} \\
+% x_{3}^{(k+1)}=x_{2}^{(k+1)}
+% \end{array}\right.
+% ,\quad 
+% \left(\begin{array}{ccc}
+% 4 & 0 & 0 \\
+% -1 & 1 & 0 \\
+% 0 & -1 & 1
+% \end{array}\right)\left(\begin{array}{c}
+% x_{1}^{(k+1)} \\
+% x_{2}^{(k+1)} \\
+% x_{3}^{(k+1)}
+% \end{array}\right)=\left(\begin{array}{c}
+% 3 \\
+% -1 \\
+% 0
+% \end{array}\right)+\left(\begin{array}{ccc}
+% 0 & -1 & 0 \\
+% 0 & 0 & -1 \\
+% 0 & 0 & 0
+% \end{array}\right)\left(\begin{array}{c}
+% x_{1}^{(k)} \\
+% x_{2}^{(k)} \\
+% x_{3}^{(k)}
+% \end{array}\right)
+% $$
+
+% \begin{table}[H]
+%   \centering
+% %   \caption{三线表示例}
+%   \begin{tabular}{cccccc}
+%     \toprule
+%     $t_i$ & 1 & 2 & 3 & 4 & 5\\
+%     \midrule
+%     $z_i$ & 2 & 4 & 6.4 & 8 & 8.6\\
+%     \bottomrule
+%   \end{tabular}
+% %   \label{tab:three-line}
+% \end{table}

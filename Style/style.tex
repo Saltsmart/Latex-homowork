@@ -1,0 +1,248 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[fontset=none]{ctex}
+
+% 数学公式和化学方程式
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{latexsym,bm}
+\usepackage[version=4]{mhchem}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}%小写罗马数字
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}%大写罗马数字
+\makeatother
+\input{Style/mathsetting.tex}
+
+% 插入PDF文件
+\usepackage[final]{pdfpages}
+
+% 引文使用
+\usepackage[backend=biber,style=gb7714-2015,gbpub=false]
+{biblatex}%align=gb7714-2015
+\addbibresource[location=local]{Ref/Collection.bib}
+% \usepackage[colorlinks=true,pdfstartview=FitH,%
+% linkcolor=blue,anchorcolor=violet,citecolor=magenta]{hyperref}%加载hyperref宏包，使用超链接
+
+% 插图使用
+\usepackage{graphicx}
+\usepackage{float}
+% \usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{subfigure}  %插入多图时用子图显示的宏包
+
+% 表格使用
+\usepackage{bigstrut}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% LaTeX距离设置：
+% mm	毫米	1 mm = 2.845 pt
+% pt	点		1 pt = 0.351 mm
+% bp	大点	1 bp = 0.353 mm > 1 pt
+% dd	迪多	1 dd = 0.376 mm = 1.07 pt
+% pc	排卡	1 pc = 4.218 mm = 12 pt
+% sp	定标点	65536 sp = 1 pt
+% cm	厘米	1 cm= 10 mm= 28.453 pt
+% cc	西塞罗	1 cc= 4.513 mm= 12 dd = 12.84 pt
+% in	英寸	1 in = 25.4 mm = 72.27 pt
+% ex	ex	1 ex = 当前字体尺寸中 x 的高度
+% em	em	1 em = 当前字体尺寸中 M 的宽度
+
+% 字体大小：
+% \newcommand{\chuhao}{\fontsize{42.2pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaochu}{\fontsize{36.1pt}{\baselineskip}\selectfont}
+% \newcommand{\yihao}{\fontsize{26.1pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaoyi}{\fontsize{24.1pt}{\baselineskip}\selectfont}
+% \newcommand{\erhao}{\fontsize{22.1pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaoer}{\fontsize{18.1pt}{\baselineskip}\selectfont}
+% \newcommand{\sanhao}{\fontsize{16.1pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaosan}{\fontsize{15.1pt}{\baselineskip}\selectfont}
+% \newcommand{\sihao}{\fontsize{14.1pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaosi}{\fontsize{12.1pt}{\baselineskip}\selectfont}
+% \newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaowu}{\fontsize{9.0pt}{\baselineskip}\selectfont}
+% \newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}
+% \newcommand{\xiaoliu}{\fontsize{6.5pt}{\baselineskip}\selectfont}
+% \newcommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}
+% \newcommand{\bahao}{\fontsize{5pt}{\baselineskip}\selectfont}
+
+% 字体
+% \usepackage{fontspec, xunicode, xltxtra}
+% \usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setsansfont{Droid Sans}
+\setmonofont{Courier New}
+\setCJKmainfont[Path="Style/",AutoFakeBold,ItalicFont=simkai.ttf]{simsun.ttc}
+\setCJKsansfont[Path="Style/",AutoFakeBold]{simhei.ttf}
+\setCJKmonofont[Path="Style/",AutoFakeBold]{simfang.ttf}
+% 需要的话
+% \setCJKfamilyfont{zhfs}[AutoFakeBold]{simfang.ttc}
+% \setCJKfamilyfont{zhkai}[AutoFakeBold]{simkai.ttf}
+% \setCJKfamilyfont{zhsong}[AutoFakeBold]{simsun.ttc}
+% \setCJKfamilyfont{zhhei}[AutoFakeBold]{simhei.ttf}
+
+\usepackage{titlesec}
+%section等前后间距
+\titlespacing*{\section}{0pt}{1ex plus .0ex minus .0ex}{1ex plus .0ex}
+\titlespacing*{\subsection}{0pt}{0ex plus .0ex minus .0ex}{0ex plus .0ex}
+%section等字体设置和字号大小
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+
+%纸张和页边距
+\usepackage[a4paper,left=1.5cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+
+%行间距
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+\AtBeginDocument{
+    \setlength{\abovedisplayskip}{3pt}%公式前后间距，强行在导言区中设置
+    \setlength{\belowdisplayskip}{3pt}%
+    \setlength{\abovedisplayshortskip}{2pt}%
+    \setlength{\belowdisplayshortskip}{2pt}%
+    %图片和浮动对象间距
+    \setlength{\floatsep}{2pt plus 2pt minus 2pt}%出现在页面的顶部或底部的浮动对象之间的垂直距离。 缺省为 12pt plus 2pt minus 2pt
+    \setlength{\textfloatsep}{2pt plus 2pt minus 2pt}%出现在页面的顶部或底部的浮动对象与文本之间的垂直距离。缺省为 20pt plus 2pt minus 4pt
+    \setlength{\intextsep}{2pt plus 2pt minus 2pt}%出现在页面中间的浮动对象（如使用了 h 选项 的浮动对象）与上下方文本之间的垂直距离。 缺省为 12pt plus 2pt minus 2pt
+}
+% 间距有关变量：
+% \baselineskip：行基线间距。
+% \lineskip：行间距。
+% \baselinestretch：伸展因子。
+% \parskip：部分段间距。
+% \lineskiplimit：当两行字之间的距离小于\lineskiplimit时，行距自动设为\lineskip。
+% 段间距：\lineskip + \parskip
+% 行间距：\lineskip = \baselineskip * \baselinestretch
+
+%首行缩进
+\usepackage{indentfirst}
+\setlength{\parindent}{2pt}
+
+%文本和图片等浮动对象占比
+\renewcommand{\floatpagefraction}{.85}%浮动页中浮动对象最大占比
+\renewcommand{\textfraction}{.15}%文本页中文本最小占比
+\renewcommand{\topfraction}{.65}%页面顶部可以用来放置浮动对象的高度与整个页面高度的最大比例
+\renewcommand{\bottomfraction}{.60}
+
+%符号列表间距设置
+% \setlength{\leftmargin}{1.2em}%左边界
+% \setlength{\parsep}{0ex}%段落间距
+% \setlength{\topsep}{1ex}%列表到上下文的垂直距离
+% \setlength{\itemsep}{0.5ex}%条目间距
+% \setlength{\labelsep}{0.3em}%标号和列表项之间的距离,默认0.5em
+% \setlength{\itemindent}{1.1em}%标签缩进量
+% \setlength{\listparindent}{0em} %段落缩进量
+
+% 列表格式
+\usepackage{enumitem}
+\setenumerate{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=2em}
+\setitemize{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=2em}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt,itemindent=2em}
+
+% 代码设置
+\usepackage{framed}
+\usepackage{listings}
+\usepackage{color,xcolor}
+\definecolor{DarkBlue}{rgb}{0.05,0,1}
+\definecolor{DarkGreen}{rgb}{0.01,0.5,0.04}
+\definecolor{DarkPurple}{rgb}{0.67,0.02,0.98}
+% 定义一个新的语言
+\lstdefinelanguage{MATLAB}
+{morekeywords={if,else,end,for,while,break,continue,function}, %定义关键字
+sensitive=true, %是否大小写敏感
+morecomment=[l]{\%},
+morecomment=[l]{\%\%},
+morestring=[b]",
+morestring=[d]',}
+% 代码本体设置
+\lstdefinestyle{MATLAB}{
+    language=MATLAB,
+    basicstyle=\footnotesize\ttfamily,
+    backgroundcolor=\color{yellow!10},%背景色淡黄
+    frame=shadowbox,
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    keywordstyle=[1]\color{DarkBlue},  
+    keywordstyle=[2]\color{purple},
+    keywordstyle=[3]\color{orange}\underbar, 
+    stringstyle=\color{DarkPurple},
+    commentstyle=\color{DarkGreen},
+    numbers=left,
+    keepspaces=false,
+    numberstyle=\footnotesize,
+    % firstnumber=1,
+    % stepnumber=1,
+}
+\lstset{
+    basicstyle=\small\ttfamily,%基本样式+小号字体
+    frame=trbl,
+    %t-top,r-right,b-bottom,l-left
+    frameround=tttt,
+    %第一个字母表示右上角的拐角，然后顺时针地依次代表各个拐角。f表示方形，t表示弧形
+    % showstringspaces=false,
+    % identifierstyle=,
+    tabsize=4,
+    breaklines=true,%自动换行
+    % breakautoindent=true,%换行自动缩进
+    % breakindent=2em, %缩进距离
+    columns=fixed,%固定字间距
+    flexiblecolumns,
+    xleftmargin=2pt,%左边距
+    xrightmargin=0pt,
+    aboveskip=5pt,
+    belowskip=0pt,
+    lineskip=-1pt,%行距增加值
+    }
+
+% 算法框图
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\floatname{algorithm}{Procedure}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% Tikz流程图
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,chains}
+\usetikzlibrary{calc}
+% 流程图定义基本形状
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 2cm, minimum height=1cm,text centered, draw = black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{decision} = [diamond, aspect = 3, text centered, draw=black]
+% 箭头形式
+\tikzstyle{arrow} = [->,>=stealth]
+
+% 页码设置
+\pagestyle{empty}
+
+% 水印
+\usepackage{eso-pic}
+\newcommand\BackgroundPicture{%
+  \put(0,0){%
+    \parbox[b][\paperheight]{\paperwidth}{%
+      \vfill
+      \centering%
+\begin{tikzpicture}[remember picture,overlay]
+\node [rotate=45,scale=6,text opacity=0.3] at (current page.center) {水印样例}; %中括号内是旋转角度，字体大小
+\end{tikzpicture}%
+      \vfill
+    }}}
+
+% 标题样式
+% \newcommand\subtitle[1]{{\Large #1}} % 定义副标题
+\makeatletter % change default title style
+\renewcommand*\maketitle{%
+    \begin{center}% 居中标题
+        % \bfseries % 默认粗体
+        {\LARGE\bfseries\@title \par} % LARGE字号，默认粗体
+        \vskip 1em% %%%  标题下面只有1em的缩进或margin
+        {\@author \par}
+        % {\global\let\author\@empty}%
+        {\global\let\date\@empty}%
+        \thispagestyle{empty} %  不设置页面样式
+    \end{center}%
+  \setcounter{footnote}{0}%
+}
+\makeatother
