@@ -28,9 +28,10 @@ Latex Homowork:
 │      
 └─Style
         mathsetting.tex //一些数学符号，特别是粗体的简写
-        simfang.ttf //四个文件分别是Windows系统的仿宋、黑体、楷体和宋体
-        simhei.ttf
-        simkai.ttf
-        simsun.ttc
+        //以下四个文件分别是Windows系统的仿宋、黑体、楷体和宋体，由于涉及商用请自行添加
+        * simfang.ttf
+        * simhei.ttf
+        * simkai.ttf
+        * simsun.ttc
         style.tex //格式设定
 ```
